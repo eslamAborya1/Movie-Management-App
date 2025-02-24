@@ -1,0 +1,113 @@
+.dashboard-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-fields {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-fields input[type="text"] {
+    padding: 8px;
+    font-size: 1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-fields button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-fields button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    text-align: center;
+    color: #d9534f;
+    margin-bottom: 20px;
+  }
+  
+  .movie-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .movie-table th,
+  .movie-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .movie-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .movie-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .movie-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .movie-table th,
+  .movie-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .movie-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .movie-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .movie-table button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .movie-table button:hover {
+    opacity: 0.8;
+  }
+  
+  .movie-table td select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  

@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<app-dashboard-component></app-dashboard-component>
+
+<div class="dashboard-container">
+    <h2>Control movies</h2>
+  
+    <div class="search-fields">
+      <input type="text" placeholder="Title" [(ngModel)]="title" name="title">
+      <input type="text" placeholder="Year" [(ngModel)]="year" name="year">
+      <select [(ngModel)]="plot" name="plot">
+        <option value="">Select plot type</option>
+        <option value="short">Short</option>
+        <option value="full">Full</option>
+      </select>      <button (click)="searchMovie()">Search</button>
+     
+    </div>
+    
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+    
+  
+    <div *ngIf="movie" class="movie-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Plot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ movie.Title }}</td>
+            <td>{{ movie.Year }}</td>
+            <td>{{ movie.Genre }}</td>
+            <td>{{ movie.Director }}</td>
+            <td>{{ movie.Plot }}</td>
+             
+          <td>
+            <button (click)="deleteMovie(movie.imdbID)" [disabled]="!movieExistsInDb">    <i class="fas fa-trash"></i>
+            </button>
+          </td>
+          
+          <td>
+            <button (click)="addMovie(movie)">     <i class="fas fa-plus-circle"></i>
+            </button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

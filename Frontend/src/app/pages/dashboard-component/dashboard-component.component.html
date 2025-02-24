@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a routerLink="/">Movie APP</a>
+  </div>
+  <ul class="navbar-links">
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin" routerLinkActive="active">Dashboard</a>
+    </li>
+    <li>
+      <a routerLink="/movies" routerLinkActive="active">Movies</a>
+    </li>
+  </ul>
+  <div class="navbar-user">
+    <span>Welcome</span>
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+</nav>
