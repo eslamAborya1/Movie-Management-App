@@ -19,38 +19,7 @@ public class AdminController {
 
     @Autowired
     private MovieService movieService;
-
-//    @GetMapping("/search-omdb")
-//    public ResponseEntity<List<Movie>> searchOmdbMovies(@RequestParam String title) {
-//        List<Movie> movies = omdbService.searchMovies(title);
-//        return ResponseEntity.ok(movies);
-//    }
-
-
-
-
-
-//    @PostMapping("/add-movie")
-//    public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
-//
-//        try {
-//            movieService.addMovie(movie);
-//            return ResponseEntity.ok("Movie added successfully!");
-//        } catch (RuntimeException e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
-
-
-        //        try {
-//            movieService.addMovie(imdbId, title, year, genre);
-//            return ResponseEntity.ok("Movie added successfully!");
-//        } catch (RuntimeException e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
-
-
+    
     @DeleteMapping("/remove-movie/{imdbId}")
     public ResponseEntity<String> removeMovie(@PathVariable String imdbId) {
         try {
