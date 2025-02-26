@@ -5,19 +5,15 @@ Movie Management Application This is a full-stack web application built with Ang
 # Features
 # Admin Dashboard
 Login Functionality: Secure login for admin users.
-
 Movie Search: Search for movies using the OMDB API.
-
 Add/Remove Movies: Admins can add or remove movies from the application database.
+Pagination: Movies are displayed with pagination for better usability .
 
-Pagination: Movies are displayed with pagination for better usability (Bonus Feature).
-
-Regular User Dashboard
+# Regular User Dashboard
 Login Functionality: Secure login for regular users.
-
 View Movie List: Users can view the full list of movies added by the admin.
-
 Movie Details: Users can view detailed information about each movie.
+Search Bar: Users can search for specific movies.
 
 # Technologies Used
 # Frontend
