@@ -99,5 +99,9 @@ public class MovieServiceImpl implements MovieService {
     public Page<Movie> searchMovies(String title, Pageable pageable) {
         return movieRepository.findByTitleContainingIgnoreCase(title, pageable);
     }
+
+
+
+
 }
 

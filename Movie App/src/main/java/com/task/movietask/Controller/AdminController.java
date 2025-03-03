@@ -20,37 +20,6 @@ public class AdminController {
     @Autowired
     private MovieService movieService;
 
-//    @GetMapping("/search-omdb")
-//    public ResponseEntity<List<Movie>> searchOmdbMovies(@RequestParam String title) {
-//        List<Movie> movies = omdbService.searchMovies(title);
-//        return ResponseEntity.ok(movies);
-//    }
-
-
-
-
-
-//    @PostMapping("/add-movie")
-//    public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
-//
-//        try {
-//            movieService.addMovie(movie);
-//            return ResponseEntity.ok("Movie added successfully!");
-//        } catch (RuntimeException e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
-
-
-        //        try {
-//            movieService.addMovie(imdbId, title, year, genre);
-//            return ResponseEntity.ok("Movie added successfully!");
-//        } catch (RuntimeException e) {
-//            return ResponseEntity.badRequest().body(e.getMessage());
-//        }
-//    }
-
-
     @DeleteMapping("/remove-movie/{imdbId}")
     public ResponseEntity<String> removeMovie(@PathVariable String imdbId) {
         try {
@@ -63,6 +32,7 @@ public class AdminController {
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
+    //from OMDB API
     @GetMapping("/omdb-movie/{imdbId}")
     public ResponseEntity<OmdbMovieDto> getMovieDetails(@PathVariable String imdbId) {
         OmdbMovieDto movieDetails = movieService.getMovieDetails(imdbId);
@@ -73,6 +43,7 @@ public class AdminController {
         }
     }
 
+    // from DataBase
     @GetMapping("/movie/{imdbId}")
     public ResponseEntity<OmdbMovieDto> getMovie(@PathVariable String imdbId) {
         OmdbMovieDto movieDetails = movieService.getMovieById(imdbId);
@@ -87,12 +58,15 @@ public class AdminController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String year,
             @RequestParam(required = false) String plot) {
-
-        OmdbMovieDto movie = movieService.getMovieByTitleYearPlot(title, year, plot);
-        if (movie != null && "True".equalsIgnoreCase(movie.getResponse())) {
-            return ResponseEntity.ok(movie);
+        if (title == null || title.isEmpty()) {
+            return ResponseEntity.badRequest().body("Title is required.");
         } else {
-            return ResponseEntity.badRequest().body(movie != null ? movie.getResponse(): "Error retrieving movie");
+            OmdbMovieDto movie = movieService.getMovieByTitleYearPlot(title, year, plot);
+            if (movie != null && "True".equalsIgnoreCase(movie.getResponse())) {
+                return ResponseEntity.ok(movie);
+            } else {
+                return ResponseEntity.badRequest().body(movie != null ? movie.getResponse() : "Error retrieving movie.");
+            }
         }
     }
 
@@ -125,6 +99,7 @@ public class AdminController {
 
     @GetMapping("/movies/search")
     public Page<Movie> searchMovies(
+
             @RequestParam String title,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {

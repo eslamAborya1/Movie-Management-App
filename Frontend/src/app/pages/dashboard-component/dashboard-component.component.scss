@@ -1,4 +1,4 @@
-/* Navbar Styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@
 
 .navbar-links a:hover,
 .navbar-links a.active {
-  color: #ffdd57; /* Highlight color for active link */
+  color: #ffdd57; 
 }
 
 .navbar-user {

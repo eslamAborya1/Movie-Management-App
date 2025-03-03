@@ -75,13 +75,14 @@ export class AdminDashboardComponent {
 
   addMovie(movie: OmdbMovie): void {
     if (!this.moviee) {
-      this.moviee = { title: '', year: '', genre: '', imdbID: '' };
+      this.moviee = { title: '', year: '', genre: '', imdbID: '',plot:'' };
     }
     
     this.moviee.title = movie.Title;
     this.moviee.year = movie.Year;
     this.moviee.genre = movie.Genre;
     this.moviee.imdbID=movie.imdbID;
+    this.moviee.plot=movie.Plot;
 
     this.omdbService.addMovie(this.moviee).subscribe(
       res => {

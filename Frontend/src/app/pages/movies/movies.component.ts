@@ -24,8 +24,8 @@ export class MoviesComponent implements OnInit {
   loadMovies(): void {
     this.movieService.searchMovies(this.searchTerm, this.currentPage, this.pageSize).subscribe({
       next: (data: any) => {
-        this.movies = data.content; // List of movies
-        this.totalItems = data.totalElements; // Total number of movies
+        this.movies = data.content;            // list of movies
+        this.totalItems = data.totalElements; // number of movies
       },
       error: (err) => {
         console.error('Error loading movies', err);
@@ -35,7 +35,7 @@ export class MoviesComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.currentPage = 0; // Reset to the first page
+    this.currentPage = 0; 
     this.loadMovies();
   }
 

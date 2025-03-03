@@ -22,4 +22,5 @@ public interface MovieService {
     void deleteMovies(List<String> imdbIds);
 
     Page<Movie> searchMovies(String title, Pageable pageable);
+
 }
