@@ -25,6 +25,4 @@ public class Movie {
     private String imdbID;
     @Column(name = "plot",nullable = false)
     private String plot;
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Rate> ratings;
 }
